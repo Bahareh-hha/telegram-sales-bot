@@ -7,6 +7,7 @@ from telegram.ext import(
 
 PHONE, ADDRES = range(2)
 
+ADMIN_CHAT_ID = 261601051
 TOKEN="8869420012:AAEi89ijpbGtwoReYJjgCd_1qXY1quUVeDg"
 
 def get_products_from_csv():
@@ -119,6 +120,20 @@ async def get_address(update: Update, context: ContextTypes.DEFAULT_TYPE):
         f"تلفن📞:{phone}\n"
         f"ادرس📍:{address}\n\n"
         f"همکاران ما به زودی با شما تماس خواهند گرفت."
+    )
+  
+    admin_message = (
+       f"**سفارش جدید ثبت شد**🚨\n\n"
+       f"محصول📦: {product}\n"
+       f"تلفن📞:{phone}\n"
+       f"ادرس📍:{address}\n\n"
+       f"👤**خریدار**{user.full_name} {{user.username}}\n"
+       f"**آیدی کاربر**{user.id}"  
+    )
+    await context.bot.send_message(
+        chat_id=ADMIN_CHAT_ID,
+        text=admin_message,
+        parse_mode="Markdown"
     )
     return ConversationHandler.END
 
