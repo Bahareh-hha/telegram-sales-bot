@@ -8,7 +8,7 @@ from telegram.ext import(
 PHONE, ADDRES = range(2)
 
 ADMIN_CHAT_ID = 261601051
-TOKEN="8869420012:AAEi89ijpbGtwoReYJjgCd_1qXY1quUVeDg"
+TOKEN="9242203333:AAFKqsCOTTLLKz7DsDlc28YYrz4tGQuKDU0"
 
 def get_products_from_csv():
     products_list=[]
