@@ -4,11 +4,12 @@ from database import (
     delete_product,
     get_all_orders,
     get_all_products,
+    init_db,
 )
 from flask import Flask, redirect, render_template, request, url_for
 
 app = Flask(__name__)
-
+init_db()
 
 @app.route("/", methods=["GET", "POST"])
 def home():
