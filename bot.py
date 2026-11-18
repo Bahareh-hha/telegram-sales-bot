@@ -78,7 +78,7 @@ async def handle_buttons(update: Update, context: ContextTypes.DEFAULT_TYPE):
         for item in products:
             name=item.get('name', 'بدون نام')
             price=item.get('price', '0')
-            stock=item.get('stock', 0)
+            
             prod_id= item.get('id', '0')
             msg=f"🔹{name}\nقیمت 💰: {price} تومان\n📊موجودی: {stock} عدد"
             keyboard=[[InlineKeyboardButton(f"🛒خرید {name}", callback_data=f"buy_{prod_id}_{name}")]]
