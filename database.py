@@ -87,7 +87,7 @@ def get_all_products():
                 "id": row[0],
                 "name": row[1],
                 "price": row[2],
-                "stock": "موجود"
+            
             })
     else:
         rows = cursor.fetchall()
@@ -96,7 +96,7 @@ def get_all_products():
                 "id": row["id"],
                 "name": row["name"],
                 "price": row["price"],
-                "stock": "موجود"
+                
             })
             
     conn.close()
