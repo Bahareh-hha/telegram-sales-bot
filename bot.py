@@ -19,17 +19,12 @@ ADMIN_CHAT_ID = 261601051
 TOKEN="9242203333:AAFKqsCOTTLLKz7DsDlc28YYrz4tGQuKDU0"
 
 def get_products_from_csv():
-    products_list=[]
     try:
-        with open('products.csv', mode='r', encoding='utf-8-sig')as file:
-            reader=csv.DictReader(file)
-            for row in reader:
-                clean_row={key.strip(): value.strip() for key, value in row.items() if key}
-                products_list.append(clean_row)
-        return products_list
+        # خواندن محصولات مستقیماً از دیتابیس ابری
+        return database.get_all_products()
     except Exception as e:
-        print(f"خطای خواندن فایلcsv: {e}")
-        return[]
+        print(f"خطا در خواندن محصولات از دیتابیس: {e}")
+        return []
 
 def save_order_to_db(user_id, username, product_name, phone, adress):
     try:
